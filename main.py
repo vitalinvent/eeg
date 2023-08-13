@@ -17,8 +17,12 @@ plt.ion()  # turn on interactive mode
 fig.canvas.draw()
 plt.show(block=False)
 
+log_file = open("log.txt","a")
+
 while True:
     num = int.from_bytes(ser.read(), "big")
+    log_line=str(num)+"\n"
+    log_file.write(log_line)
     end = time.time()
     # y.append(num)
     y[xi] = num
